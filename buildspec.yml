@@ -7,12 +7,9 @@ phases:
     commands:
       - echo BUILD STARTED on 'date'
       - sam build
-      - sam package
-        -- template-file template.yaml
-        -- output-template-file package.yml
-        -- s3-bucket hw2-packaged-backend
+      - sam package --template-file template.yaml --output-template-file package.yml --s3-bucket hw2-packaged-backend
   
-  artifacts:
-    files:
-      - template.yaml
-      - package.yml
+artifacts:
+  files:
+    - template.yaml
+    - package.yml
