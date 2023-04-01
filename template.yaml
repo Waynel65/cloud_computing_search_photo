@@ -198,7 +198,7 @@ Resources:
         Properties:
             Description: ""
             FunctionName: "indexing-LF1"
-            Handler: "lambda_function.lambda_handler"
+            Handler: "indexing-LF1.lambda_handler"
             Architectures: 
               - "x86_64"
             CodeUri: ./src/indexing-LF1
@@ -223,7 +223,7 @@ Resources:
         Properties:
             Description: ""
             FunctionName: "search-photos"
-            Handler: "lambda_function.lambda_handler"
+            Handler: "search-photos.lambda_handler"
             Architectures: 
               - "x86_64"
             CodeUri: ./src/search-photos

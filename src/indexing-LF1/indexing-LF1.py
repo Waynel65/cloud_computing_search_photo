@@ -129,6 +129,7 @@ def store_to_ES(key, bucket, labels):
     body = json.dumps(document)
     
     response = http.request('POST', url, headers=headers, body=body)
+    print("ES response", response) 
     
     return response.status
     
@@ -161,16 +162,16 @@ def lambda_handler(event, context):
     
     success = store_to_ES(key, bucket, labels_detected)
     print("indexing successfully?", success)
+    if success != 200:
+        return {
+             "statusCode": 500,
+            "body": "image upload failed. Please try again" 
+        }
     
-    response = {
+    return {
         "statusCode": 200,
          "body": "image uploaded and indexed"
-    #     "headers": {
-    #         # "Content-Type": "application/json",
-    #         'Access-Control-Allow-Headers': 'Content-Type',
-    #         'Access-Control-Allow-Origin': '*',
-    #         'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
-    #     },
     }
+
+# this is a proof that codepipeline works
     
-    return response

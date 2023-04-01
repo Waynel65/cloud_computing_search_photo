@@ -144,7 +144,7 @@ def get_user_query(event):
     try:
         response = lex_client.recognize_text(**lex_params)
         # add error handling
-        print(response)
+        print("lex response", response)
         keywords = parse_query_keywords(response)
         print("parsed results:", keywords)
         return success, keywords
@@ -164,12 +164,15 @@ def return_error(error_msg):
             "message": error_msg
         })
     }
+    
+    return response
 
 def lambda_handler(event, context):
     print("event", event)
     success, keywords = get_user_query(event)
     if not success:
-        return_error("something went wrong with lex")
+        print("something went wrong with lex")
+        return return_error("something went wrong with lex")
     print("got keywords: ", keywords)
     
     resp = set_response_object(search_ES(keywords)) if keywords else []
