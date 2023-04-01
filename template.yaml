@@ -216,7 +216,7 @@ Resources:
                 SecurityGroupIds: 
                   - "sg-022a3f9e36cc4187b"
 
-     LambdaFunction2:
+    LambdaFunction2:
         Type: AWS::Serverless::Function
         Properties:
             Description: ""
