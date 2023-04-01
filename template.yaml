@@ -243,8 +243,6 @@ Resources:
                 SecurityGroupIds: 
                   - "sg-022a3f9e36cc4187b"
 
-
-
     # ApiGatewayRestApi:
     #     DeletionPolicy: "Retain"
     #     Type: "AWS::ApiGateway::RestApi"
