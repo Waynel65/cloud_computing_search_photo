@@ -159,6 +159,10 @@ Resources:
                   - 
                     ServerSideEncryptionByDefault: 
                         SSEAlgorithm: "AES256"
+            BucketKeyEnabled: true
+            WebsiteConfiguration: 
+                IndexDocument: "index.html"
+
     LexBot:
         DeletionPolicy: "Delete"
         Type: "AWS::Lex::Bot"
@@ -187,9 +191,7 @@ Resources:
                         LambdaCodeHook: 
                             LambdaArn: !Sub "arn:aws:lambda:${AWS::Region}:075255198337:function:search-photos"
                             CodeHookInterfaceVersion: "1.0"
-                    BucketKeyEnabled: true
-            WebsiteConfiguration: 
-                IndexDocument: "index.html"
+
 
     LambdaFunction:
         Type: AWS::Serverless::Function
