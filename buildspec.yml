@@ -1,0 +1,18 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      python: 3.9
+    build:
+      commands:
+        - echo BUILD STARTED on 'date'
+        - sam build
+        - sam package
+          -- template-file template.yaml
+          -- output-template-file package.yml
+          -- s3-bucket hw2-packaged-backend
+    
+    artifacts:
+      files:
+        - template.yaml
+        - package.yml
