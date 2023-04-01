@@ -131,7 +131,7 @@ Resources:
                   - 
                     ServerSideEncryptionByDefault: 
                         SSEAlgorithm: "AES256"
-                    BucketKeyEnabled: true
+                    # BucketKeyEnabled: true
             CorsConfiguration: 
                 CorsRules: 
                   - 
@@ -159,7 +159,7 @@ Resources:
                   - 
                     ServerSideEncryptionByDefault: 
                         SSEAlgorithm: "AES256"
-            BucketKeyEnabled: true
+                    # BucketKeyEnabled: true
             WebsiteConfiguration: 
                 IndexDocument: "index.html"
 
